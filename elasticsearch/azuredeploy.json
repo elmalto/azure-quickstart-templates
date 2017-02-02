@@ -328,18 +328,18 @@
             "addressPrefix": "10.0.0.0/16",
             "subnet": {
                 "master": {
-                    "name": "es-master",
-                    "prefix": "10.0.0.0/24",
+                    "name": "Subnet",
+                    "prefix": "10.0.0.0/18",
                     "vnet": "[parameters('virtualNetworkName')]"
                 },
                 "data": {
-                    "name": "es-data",
-                    "prefix": "10.0.1.0/24",
+                    "name": "Subnet",
+                    "prefix": "10.0.0.0/18",
                     "vnet": "[parameters('virtualNetworkName')]"
                 },
                 "other": {
-                    "name": "es-other",
-                    "prefix": "10.0.2.0/24",
+                    "name": "Subnet",
+                    "prefix": "10.0.0.0/18",
                     "vnet": "[parameters('virtualNetworkName')]"
                 }
             }
