@@ -46,8 +46,8 @@
             }
         },
         "sshPublicKey": {
-            "defaultValue": "",
-		"type": "String",
+            "defaultValue": "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAACAQDjy4TQIJ+q6Sv+ivYc5ly1zAPdvFY4OVrg1XSaNuTRUqNtU4xzW4zVLyNezcrS606FkCkFftgyzNkcgir/Yor/n/bn+UTAu6V0Eh0ntFVfGzhBtQDdPtSHQycrfsymHMneoRrnYjp3DSLsfB1zkbgFJJPVA9s0d5k4M6VgmdrzmQYf5hhiT0k4+sOMMRdRNZDYrZIl8tsV9vZ20RZesjw/svMAD2MthsRq7I73AWnEcyW51q5yZTUhG1wX5MTBbpcumB0ivR2qMRpmpWT3uLyNnb4AvzibNqSaonYTzmaseFLfgNdPmur77QYT81aw7QhX+lvIDllsmAUKY44Uwc7HjN+RYTfB7eynAq9DmIJ+k/hnMQEJevYwkn3dXvD3SI+NlEPWAC01fnWO6wK8C4YAZQhoGiX2CYx0EYcex1pKWJ9xirgIuUx0HTGhdGsOoX37gWrgVj77feSKochD9UCfFIanD6Dk4aYMRJ7X72Q4PaT8XTNE2B+lpugFoBh4TZmwTMroiemeoKyed7kAKIm/tz5wWHZDCmFHEiPCQAEgGja0R/7DI6slvoRxK+eRsM5BrtzBEfpfrC/zRtoWYdUG1zs+3Yv/OSXU5zdGjV+saq0zVe4mUS8JsEZL6iuxbh67LwqmFgczCu2HmB/qwg573J5bF1ZqoGWIv9LP53KwHw== malte.buecken@gmail.com",
+            "type": "String",
             "metadata": {
                 "description": "The public ssh key to use for authentication (Linux only)"
             }
@@ -295,7 +295,7 @@
             }
         },
         "_artifactsLocation": {
-            "defaultValue": "https://raw.githubusercontent.com/elmalto/azure-quickstart-templates/master/elasticsearch/",
+            "defaultValue": "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/elasticsearch",
             "type": "String",
             "metadata": {
                 "description": "Change this value to your repo name if deploying from a fork"
@@ -312,7 +312,7 @@
     "variables": {
         "nestedTemplatesFolderName": "nestedtemplates",
         "scriptsLocation": "[concat(parameters('_artifactsLocation'), '/scripts/')]",
-        "sharedScriptsLocation": "https://raw.githubusercontent.com/elmalto/azure-quickstart-templates/master/elasticsearch/",
+        "sharedScriptsLocation": "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/shared_scripts/ubuntu/",
         "storageAccountPrefix": "[concat(substring(uniqueString(resourceGroup().id, parameters('esClusterName')), 0, 6), substring(parameters('esClusterName'), 0, 3))]",
         "storageAccountNameAFS": "[concat(variables('storageAccountPrefix'), 'afs')]",
         "storageAccountNameShared": "[concat(variables('storageAccountPrefix'), 'sh')]",
@@ -827,7 +827,7 @@
                         "value": "[parameters('vmSizeMasterNodes')]"
                     },
                     "subnet": {
-                        "value": "[variables('networkSettings').es-subnet.master]"
+                        "value": "[variables('networkSettings').subnet.master]"
                     },
                     "osSettings": {
                         "value": "[variables('osSettings')]"
@@ -868,7 +868,7 @@
                         "value": "[parameters('vmSizeMarvelNodes')]"
                     },
                     "subnet": {
-                        "value": "[variables('networkSettings').es-subnet.other]"
+                        "value": "[variables('networkSettings').subnet.other]"
                     },
                     "osSettings": {
                         "value": "[variables('osSettings')]"
@@ -929,7 +929,7 @@
                         "value": "[variables('dataNodeStorageSettings')]"
                     },
                     "subnet": {
-                        "value": "[variables('networkSettings').es-subnet.other]"
+                        "value": "[variables('networkSettings').subnet.other]"
                     },
                     "vmSize": {
                         "value": "[parameters('vmSizeClientNodes')]"
@@ -973,7 +973,7 @@
                         "value": "[variables('dataNodeStorageSettings')]"
                     },
                     "subnet": {
-                        "value": "[variables('networkSettings').es-subnet.data]"
+                        "value": "[variables('networkSettings').subnet.data]"
                     },
                     "vmSize": {
                         "value": "[parameters('vmSizeDataNodes')]"
@@ -1017,7 +1017,7 @@
                         "value": "[variables('authSet')]"
                     },
                     "subnet": {
-                        "value": "[variables('networkSettings').es-subnet.other]"
+                        "value": "[variables('networkSettings').subnet.other]"
                     },
                     "osSettings": {
                         "value": "[variables('osSettings')]"
@@ -1052,7 +1052,7 @@
                         "value": "[variables('authSet')]"
                     },
                     "subnet": {
-                        "value": "[variables('networkSettings').es-subnet.other]"
+                        "value": "[variables('networkSettings').subnet.other]"
                     },
                     "osSettings": {
                         "value": "[variables('osSettings')]"
